@@ -21,6 +21,18 @@ app.use(cors({
   credentials: true
 }));
 
+// Root route handler
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'StoryChain API is running',
+    endpoints: {
+      stories: '/api/stories',
+      specificStory: '/api/stories/:slug',
+      addStoryLine: '/api/stories/:slug/lines'
+    }
+  });
+});
+
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
