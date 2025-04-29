@@ -6,7 +6,10 @@ import { motion } from "framer-motion";
 import StoryDisplay from "../../components/StoryDisplay";
 import NewLineInput from "../../components/NewLineInput";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+// Fix API_URL to handle trailing slashes correctly
+const API_URL = (
+  process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api"
+).replace(/\/$/, "");
 
 interface Story {
   _id: string;

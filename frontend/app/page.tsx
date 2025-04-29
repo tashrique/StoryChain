@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import StoryList from "./components/StoryList";
 import CreateStoryModal from "./components/CreateStoryModal";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
+const API_URL = process.env.NEXT_PUBLIC_API_URL?.replace(/\/$/, "");
 
 interface Story {
   _id: string;
